@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Random generation and their multiplication\Binary random generation_(values 1 -1).cpp" />
+    <ClCompile Include="Random generation and their multiplication\Phase random generation(values -pi +pi) and matrix multiplication.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

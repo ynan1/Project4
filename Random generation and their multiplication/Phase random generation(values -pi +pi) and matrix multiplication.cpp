@@ -12,10 +12,10 @@ int main()
              // element in the array. tewt
 
     int* k = new int[15000] {}; // we can use short int(2 byte) or int(4 byte).
-    float* cr = new float[30000] {};
-    float* ci = new float[30000] {};
+    float* cr = new float[30000] {}; // real part of complex random no.
+    float* ci = new float[30000] {};  // imaginary part of complex random no.
     float* S = new float[15000] {};
-    float* K = new float[15000] {};                                     // we can use int(4 byte) or int64_t(8 byte).
+    float* K = new float[15000] {};          
     int J = 0;
     int R = 0;
     int* d = new int[15000] {};
@@ -49,7 +49,7 @@ int main()
         K[p] = k[p] / 1000.;
         //std::cout << K[p] << ' ';
     }
-    std::cout << "Values of CRs are: " << '\n';
+    std::cout << "Values of CRs are: " << '\n';  // real part of complex random no. matrix multiplication
 
     for (int r = 0; r < 100; r++)
     {
@@ -58,7 +58,7 @@ int main()
         {
 
             float tempr = 0;
-            float tempi = 0;
+            
             for (int m = 0; m < 100; m++)
             {
 
@@ -76,8 +76,9 @@ int main()
         R = r + 1;
         
     }
+
     std::cout  << '\n' << '\n';
-    std::cout << "Values of CIs are: " << '\n';
+    std::cout << "Values of CIs are: " << '\n'; // imag. part of complex random no. matrix multiplication
 
     for (int r = 0; r < 100; r++)
     {
@@ -85,7 +86,7 @@ int main()
         for (int j = 0; j < 100; j++)
         {
 
-            float tempr = 0;
+           
             float tempi = 0;
             for (int m = 0; m < 100; m++)
             {
@@ -103,6 +104,55 @@ int main()
         //R = r + 1;
 
     }
+    std::cout << '\n' << '\n';
+    std::cout << "Values of CRs truncated to 3 decimal points are: " << '\n'; //Truncation to 3 decimals
+    for (int i = 0;i < R * J;i++)
+    {
+      
+        if (cr[i] > 0)
+        {
+            d[i] = (int)(cr[i] * 1000 + .5);
+        }
+        else
+        {
+            d[i] = (int)(cr[i] * 1000 - .5);
+        }
+
+        cr[i] = (float)d[i] / 1000;     // float values of CRs truncated to 3 decimal points.
+
+        std::cout << cr[i] << ' ';
+
+
+    }
+    std::cout << '\n' << '\n';
+    std::cout << "Values of CIs truncated to 3 decimal points are: " << '\n'; //Truncation to 3 decimals
+
+    for (int i = 0;i < R * J;i++)
+    {
+      
+        if (ci[i] > 0)
+        {
+            d[i] = (int)(ci[i] * 1000 + .5);
+        }
+        else
+        {
+            d[i] = (int)(ci[i] * 1000 - .5);
+        }
+
+        ci[i] = (float)d[i] / 1000;     // float values of CIs truncated to 3 decimal points.
+
+        std::cout << ci[i] << ' ';
+
+
+    }
+    std::cout << '\n';
+    delete[] s;    // Clear memory/objects.
+    delete[] k;
+    delete[] S;    // Clear memory/objects.
+    delete[] K;
+    delete[] cr;    // Clear memory/objects.
+    delete[] ci;
+    delete[] d;    // Clear memory/objects.
     
 
 }

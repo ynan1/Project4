@@ -13,9 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Random generation and their multiplication">
+      <UniqueIdentifier>{d82f8d2a-c8d2-45eb-97ec-4f9832a19efd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Random generation and their multiplication\Binary random generation_(values 1 -1).cpp">
+    <ClCompile Include="Random generation and their multiplication\Phase random generation(values -pi +pi) and matrix multiplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

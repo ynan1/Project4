@@ -12,13 +12,13 @@ int main()
              // element in the array. tewt
 
     int* k = new int[15000] {}; // we can use short int(2 byte) or int(4 byte).
-    float* c = new float[30000] {};
+   
     float* S = new float[15000] {};
     float* K = new float[15000] {};                                     // we can use int(4 byte) or int64_t(8 byte).
     int J = 0;
     int R = 0;
-    int* d = new int[15000] {};
-    int Count;
+    
+  
 
     std::cout << "The size of type float is: " << sizeof(float) << " byte(s)" << '\n';
     std::cout << "The size of type double is: " << sizeof(double) << " byte(s)" << '\n';
@@ -47,4 +47,10 @@ int main()
         K[p] = k[p] / 1000.;
         std::cout << K[p] << ' ';
     }
+
+    delete[] s;    // Clear memory/objects.
+    delete[] k;
+    delete[] S;    // Clear memory/objects.
+    delete[] K;
+   
 }
