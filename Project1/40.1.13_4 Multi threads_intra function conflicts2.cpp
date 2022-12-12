@@ -5,7 +5,8 @@ void myfunction(const std::string& param)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "Executing function from a " << param << '\n'; //wrong results because of same function being accessed by 2 threads.
+		std::cout << "Executing function from a " << param << '\n'; //wrong results because of same
+		                    //function and same class template std::cout being accessed by 2 threads.
 	}
 }
 int main()
