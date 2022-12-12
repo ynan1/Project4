@@ -17,4 +17,18 @@
       <UniqueIdentifier>{d82f8d2a-c8d2-45eb-97ec-4f9832a19efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Project1\40.1.13_3 Multiple Threads_inter function conflicts1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project1\40.1.13_4 Multi threads_intra function conflicts2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project1\40.1.13_5 Multi threads_one at a time execution_lock_guard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project1\40.1.13_6 Multi Threads_synchronize threads_one a time thread execution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

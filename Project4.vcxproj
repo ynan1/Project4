@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Project1\40.1.13_3 Multiple Threads_inter function conflicts1.cpp" />
+    <ClCompile Include="Project1\40.1.13_4 Multi threads_intra function conflicts2.cpp" />
+    <ClCompile Include="Project1\40.1.13_5 Multi threads_one at a time execution_lock_guard.cpp" />
+    <ClCompile Include="Project1\40.1.13_6 Multi Threads_synchronize threads_one a time thread execution.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
