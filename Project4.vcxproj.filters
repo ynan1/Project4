@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Random generation and their multiplication\Phase random generation(values -pi +pi) and matrix multiplication.cpp">
+    <ClCompile Include="Project1\40.1.13_5 Multi threads_one at a time execution_lock_guard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
