@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Random generation and their multiplication\Cartesian Multiplication_complex number multiplication.cpp">
+    <ClCompile Include="DMRS\LUT_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
