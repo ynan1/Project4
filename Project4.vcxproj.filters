@@ -17,4 +17,9 @@
       <UniqueIdentifier>{d82f8d2a-c8d2-45eb-97ec-4f9832a19efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DMRS\DMRS_2 Phase correction_LUT, real and imaginary value correction_-pi to +pi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
