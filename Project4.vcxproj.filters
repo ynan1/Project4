@@ -18,10 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DMRS\DMRS_2 Phase correction, real and imaginary value correction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DMRS\DMRS_1 Phase correction.cpp">
+    <ClCompile Include="DMRS\DMRS_1 Phase correction_Both Random phases_-pi to +pi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
