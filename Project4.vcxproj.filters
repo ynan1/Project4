@@ -21,5 +21,8 @@
     <ClCompile Include="DMRS\DMRS_1 Phase correction_Both Random phases_-pi to +pi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DMRS\DMRS_2 Phase correction_LUT, real and imaginary value correction_-pi to +pi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
