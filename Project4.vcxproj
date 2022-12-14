@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DMRS\DMRS_2 Phase correction_LUT, real and imaginary value correction_-pi to +pi.cpp" />
+    <ClCompile Include="DMRS\DMRS_3 Compensation using Cartesian complex values .cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
