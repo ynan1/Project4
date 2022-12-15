@@ -3,6 +3,8 @@
 #include<stdlib.h>
 #include <thread>
 
+// 38.211 3gpp word file
+
 int main()
 {
     std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
