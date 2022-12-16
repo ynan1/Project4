@@ -8,6 +8,8 @@
 using namespace std;
 using namespace std::chrono;
 
+// 38.211 3gpp word file
+
 int main()
 {
     std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
