@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Checking or testing a cpp file\generate product values from multiplication of two values.cpp">
+    <ClCompile Include="DMRS\DMRS_3 Estimation of %27h%27 values with time taken in %27h%27 estimation .cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
