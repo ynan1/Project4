@@ -7,21 +7,23 @@
 #include <thread>
 #include <mutex>
 
-//std::mutex m; // will guard std::cout
+std::mutex m; // will guard std::cout
 void function1(const std::string& param1)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		//m.lock();
+		m.lock();
 		std::cout << "Executing function1." << param1 << '\n';
-		//m.unlock();
+		m.unlock();
 	}
 }
 void function2(const std::string& param2)
 {
 	for (int i = 0; i < 10; i++)
 	{
+		m.lock();
 		std::cout << "Executing function2." << param2 << '\n';
+		m.unlock();
 	}
 }
 int main()

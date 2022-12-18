@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DMRS\DMRS_3 Estimation of %27h%27 values with time taken in %27h%27 estimation .cpp">
+    <ClCompile Include="DMRS\DMRS_4 With Threads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
