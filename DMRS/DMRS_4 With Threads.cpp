@@ -35,10 +35,6 @@ void function1()
     {
         m.lock();
 
-      
-
-        std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
-        std::cout << "\n Real random no. \n ";
 
         auto start1 = high_resolution_clock::now();
         srand(time(0));         // intialising random variable each time program starts, else rand() will give
@@ -60,7 +56,6 @@ void function1()
                 sr[n] = 1;
             }
 
-            std::cout << sr[n] << "," << ' ';
         }
 
 
@@ -77,13 +72,11 @@ void function2()
 {
     m.lock();
 
-    std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
-    std::cout << "\n Imaginary random no. \n ";
 
     auto start2 = high_resolution_clock::now();
 
     srand(time(0));         // intialising random variable each time program starts, else rand() will give
-    // same value each time program is run.
+                             // same value each time program is run.
     for (int i = 0; i < 4100; i++)   // Arrays of 10,000 elements taken here.
     {
 
@@ -100,7 +93,6 @@ void function2()
         {
             si[p] = 1;
         }
-        std::cout << si[p] << "," << ' ';
     }
 
     auto stop2 = high_resolution_clock::now();
@@ -116,12 +108,10 @@ void function3()
 {
         m.lock();
 
-        std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
-        std::cout << "\n Executing function 3." << '\n';
 
         auto start3 = high_resolution_clock::now();
 
-        for (int i = 0; i < 4000; i++)
+        for (int i = 0; i < 4100; i++)
         {
             dr1[i] = sr[i] * SRR[i];
             dr2[i] = si[i] * SIR[i];
@@ -142,15 +132,12 @@ void function4()
 {
         m.lock();
 
-        std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
-        std::cout << "\n Executing function 4."  << '\n';
 
         auto start4 = high_resolution_clock::now();
 
-        for (int i = 0; i < 4000; i++)
+        for (int i = 0; i < 4100; i++)
         {
             D[i] = si[i] * si[i] + SIR[i] * SIR[i];
-            std::cout << D[i] << "," << ' ';
         }
 
         auto stop4 = high_resolution_clock::now();
@@ -166,13 +153,9 @@ void function5()
 {
         m.lock();
 
-
-        std::cout << "Thread ID: " << std::thread::hardware_concurrency() << '\n';
-        std::cout << "\n Executing function 4."  << '\n';
-
         auto start5 = high_resolution_clock::now();
 
-        for (int j = 0; j < 4000; j++)
+        for (int j = 0; j < 4100; j++)
         {
             crr[j] = (dr1[j] - dr2[j]) / D[j];
             cri[j] = (di1[j] + di2[j]) / D[j];
@@ -201,12 +184,12 @@ int main()
     t3.join();
     std::thread t4{ function4 };
     t4.join();
-    std::thread t5{ function4 };
+    std::thread t5{ function5 };
     t5.join();
 
     std::cout << "\n Real h = \n ";
 
-    for (int i = 0;i < 4000;i++)
+    for (int i = 0;i < 4100;i++)
     {
         std::cout << crr[i] << "," << ' ';
 
@@ -217,7 +200,7 @@ int main()
 
     std::cout << "\n Imaginary h = \n";
 
-    for (int i = 0;i < 4000;i++)
+    for (int i = 0;i < 4100;i++)
     {
         std::cout << cri[i] << "," << ' ';
         CountI = i;
