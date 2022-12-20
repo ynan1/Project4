@@ -4,10 +4,10 @@
 
 auto objects1 = std::make_unique<int[]>(14);
 auto d = std::make_unique<int[] >(14);
-auto objects2 = std::make_unique<float[]>(14);
-auto k = std::make_unique<float[] >(14);
-auto objects3 = std::make_unique<float[]>(14);
-auto ph = std::make_unique<float[] >(14);
+//auto objects2 = std::make_unique<float[]>(14);
+//auto k = std::make_unique<float[] >(14);
+//auto objects3 = std::make_unique<float[]>(14);
+//auto ph = std::make_unique<float[] >(14);
 
 int main()
 {
@@ -16,18 +16,21 @@ int main()
 	float phase ;
 	float x_cal = 0;
 	float y_cal = 0;
+	
 	//float ph[11] = { 0.7853981633974483,0.4636476090008061,0.2449786631268641,0.1243549945467614,0.06241880999595735,0.03123983343026828, 0.01562372862047683, 0.007812341060101111, 0.003906230131966972, 0.001953122516478819, 0.0009765621895593195 };
+	float k[14] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };
+	float ph[14] = {0.785398, 0.463648, 0.244979, 0.124355, 0.0624188, 0.0312398, 0.0156237, 0.00781234, 0.00390623, 0.00195312, 0.000976562, 0.000488281, 0.000244141};
 	float ph_temp;
 	float x_re;
 	float y_im;
-	int i = 1;
+	int i ;
 	const double PI = 3.141592653589793238463;
 
 	std::cout << "\n Please Enter the Angle in Degree and press enter: ";
 	phase = 0.;
 	std::cin >> phase;
 
-	if (real_x > 0)
+	if (phase > 0)
 	{
 		ph_temp = PI * phase / 180;
 		x_re = real_x;
@@ -36,18 +39,22 @@ int main()
 	else {
 		ph_temp = PI * phase / 180;
 		x_re = real_x;
-		y_im = -imag_y;
+		y_im = imag_y;
 	}
 
 	//std::cout << ph_temp << ' ';
 
-	for (int i = 1; i < 14; i++)   
-	{
-		k[i] = pow(2, -(i - 1));
-		ph[i] = atan(k[i]);
-		//std::cout << k[i] << ' ';
+	//for (int i = 1; i < 14; i++)   
+	//{
+		//k[i] = pow(2, -(i - 1));
+		//ph[i] = atan(k[i]);
+
+		//k[i] = k[i - 1];
+		//ph[i] = ph[i - 1];
+		//std::cout << k[i] << "," << ' ';
+		//std::cout << ph[i] << "," << ' ';
 		//std::cout << "\n";
-	}
+	//}
 
 	x_re = x_re - 1 * y_im * 1;
 	y_im = y_im + 1 * x_re * 1;
@@ -71,25 +78,26 @@ int main()
 		if (y_im >= 0)
 		{
 			float x_re1 = 0.;
-			x_re = x_re - d[i] * y_im * k[i + 1];
-			x_re1 = x_re + d[i] * y_im * k[i + 1];
-			y_im = y_im + d[i] * x_re1 * k[i + 1];
-			ph_temp = ph_temp - d[i] * ph[i + 1];
+			x_re = x_re - d[i] * y_im * k[i ];
+			x_re1 = x_re + d[i] * y_im * k[i ];
+			y_im = y_im + d[i] * x_re1 * k[i];
+			ph_temp = ph_temp - d[i] * ph[i ];
 
 		}
 		else {
 
 			float x_re2 = 0.;
-			x_re = x_re - d[i] * y_im * k[i + 1];
-			x_re2 = x_re + d[i] * y_im * k[i + 1];
-			y_im = y_im + d[i] * x_re2 * k[i + 1];
-			ph_temp = ph_temp - d[i] * ph[i + 1];
+			x_re = x_re - d[i] * y_im * k[i ];
+			x_re2 = x_re + d[i] * y_im * k[i ];
+			y_im = y_im + d[i] * x_re2 * k[i ];
+			ph_temp = ph_temp - d[i] * ph[i ];
 
 		}
 
-		//std::cout << d[i] << ' ';
-		//std::cout << x_re << ' ';
-		//std::cout << y_im << ' ';
+		std::cout << "\n" << d[i] << ' ';
+		//std::cout  << ph[i] << ' ';
+		std::cout << x_re << ' ';
+		std::cout << y_im << ' ';
 		//std::cout << 180 * ph_temp / PI << ' ' << "\n";
 
 		x_cal = x_re;
