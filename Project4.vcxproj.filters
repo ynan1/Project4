@@ -21,5 +21,8 @@
     <ClCompile Include="Cordics\Sin and Cos Cordic_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cordics\Sin and Cos Cordic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
