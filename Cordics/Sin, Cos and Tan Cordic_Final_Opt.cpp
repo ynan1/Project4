@@ -86,12 +86,14 @@ int main()
 		phase = (phase + 360);
 	}
 
+	// Initialise
+
 	k[0] = 1.;
 	x_re = x_re - d[0] * y_im * k[0];
 	y_im = y_im + d[0] * x_re * k[0];
 	ph_temp = ph_temp - d[0] * PI / 4;
 
-	
+	// Calculate
 
 	for (int i = 1; i < 13; i++)   
 	{
