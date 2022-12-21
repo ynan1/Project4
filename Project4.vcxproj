@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Checking or testing a cpp file\Sin Cos Tan Test.cpp" />
     <ClCompile Include="Cordics\Sin, Cos and Tan Cordic_Final_Opt.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
