@@ -47,6 +47,15 @@ int main()
 
 	auto start1 = high_resolution_clock::now();  // Start of Program
 
+	if (phase > 0 && phase > 180.)
+	{
+		phase = (phase - 360);
+	}
+	else if (phase < 0 && phase < -180.)
+	{
+		phase = (phase + 360);
+	}
+
 	if (phase > 0 && phase <= 90.)
 	{
 		ph_temp = PI * phase / 180;
@@ -75,15 +84,6 @@ int main()
 		x_re = real_x;
 		y_im = imag_y;
 		d[0] = 1;
-	}
-
-	if (phase > 0 && phase > 180.)
-	{
-		phase = (phase - 360);
-	}
-	else if (phase < 0 && phase < -180.)
-	{
-		phase = (phase + 360);
 	}
 
 	// Initialise
