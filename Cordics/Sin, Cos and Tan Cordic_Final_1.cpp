@@ -2,30 +2,29 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <mutex>
 
 using namespace std;
+using namespace std::chrono;
+std::mutex m;
 
 auto objects1 = std::make_unique<int[]>(14);
 auto d = std::make_unique<int[] >(14);
-auto objects2 = std::make_unique<float[]>(14);
-auto k = std::make_unique<float[] >(14);
-auto objects3 = std::make_unique<float[]>(14);
-auto ph = std::make_unique<float[] >(14);
+auto objects2 = std::make_unique<double[]>(14);
+auto k = std::make_unique<double[] >(14);
+auto objects3 = std::make_unique<double[]>(14);
+auto ph = std::make_unique<double[] >(14);
 
 int main()
 {
-	float real_x = .6072;
-	float imag_y = 0.;
-	float phase;
-	float x_cal = 0;
-	float y_cal = 0;
-
-	//float ph[11] = { 0.7853981633974483,0.4636476090008061,0.2449786631268641,0.1243549945467614,0.06241880999595735,0.03123983343026828, 0.01562372862047683, 0.007812341060101111, 0.003906230131966972, 0.001953122516478819, 0.0009765621895593195 };
-	//float k[14] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };
-	//float ph[14] = { 0.785398, 0.463648, 0.244979, 0.124355, 0.0624188, 0.0312398, 0.0156237, 0.00781234, 0.00390623, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };
-	float ph_temp = 0;
-	float x_re = 0;
-	float y_im = 0;
+	double real_x = .6072;
+	double imag_y = 0.;
+	double phase;
+	double x_cal = 0;
+	double y_cal = 0;
+	double ph_temp = 0;
+	double x_re = 0;
+	double y_im = 0;
 	int i;
 	const double PI = 3.141592653589793238463;
 
@@ -34,14 +33,7 @@ int main()
 	phase = 0.;
 	std::cin >> phase;
 
-	if (phase > 0 && phase > 180.)
-	{
-		phase = (phase - 360);
-	}
-	else if (phase < 0 && phase < -180.)
-	{
-		phase = (phase + 360);
-	}
+	auto start1 = high_resolution_clock::now();
 
 	if (phase > 0 && phase <= 90.)
 	{
@@ -73,29 +65,44 @@ int main()
 		d[0] = 1;
 	}
 
-	//std::cout << ph_temp << ' ';
+	if (phase > 0 && phase > 180.)
+	{
+		phase = (phase - 360);
+	}
+	else if (phase < 0 && phase < -180.)
+	{
+		phase = (phase + 360);
+	}
+
+	auto stop1 = high_resolution_clock::now();
+	auto duration1 = duration_cast<microseconds>(stop1 - start1);
+
+	std::cout << "\n Time taken by phase selection function: "
+		<< duration1.count() << " microseconds" << endl;
+
+	auto start = high_resolution_clock::now();
 
 	for (int i = 1; i < 14; i++)   
 	{
 		k[i] = pow(2, -(i - 1));
-		ph[i] = atan(k[i]);
-
-		//std::cout << k[i] << "," << ' ';
-		//std::cout << ph[i] << "," << ' ';
-		//std::cout << "\n";
+		//ph[i] = atan(k[i]);
+		std::cout << k[i] << "," << ' ';
 	}
+
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop - start);
+
+	std::cout << "\n Time taken by k & ph Calculation function: "
+		<< duration.count() << " microseconds" << endl;
 
 	k[0] = 1.;
 	x_re = x_re - d[0] * y_im * k[0];
 	y_im = y_im + d[0] * x_re * k[0];
 	ph_temp = ph_temp - d[0] * PI / 4;
 
-	//std::cout << 1 << ' ';
-	//std::cout << x_re << ' ';
-	//std::cout << y_im << ' ';
-	//std::cout << 180 * ph_temp / PI << ' ' << "\n";
+	auto start2 = high_resolution_clock::now();
 
-	for (int i = 1; i < 13; i++)   // Arrays of 10,000 elements taken here.
+	for (int i = 1; i < 13; i++)   
 	{
 		if (ph_temp >= 0)
 		{
@@ -107,7 +114,7 @@ int main()
 
 		if (y_im >= 0)
 		{
-			float x_re1 = 0.;
+			double x_re1 = 0.;
 			x_re = x_re - d[i] * y_im * k[i + 1];
 			x_re1 = x_re + d[i] * y_im * k[i + 1];
 			y_im = y_im + d[i] * x_re1 * k[i + 1];
@@ -116,7 +123,7 @@ int main()
 		}
 		else {
 
-			float x_re2 = 0.;
+			double x_re2 = 0.;
 			x_re = x_re - d[i] * y_im * k[i + 1];
 			x_re2 = x_re + d[i] * y_im * k[i + 1];
 			y_im = y_im + d[i] * x_re2 * k[i + 1];
@@ -124,16 +131,16 @@ int main()
 
 		}
 
-		//std::cout << "\n" << d[i] << ' ';
-		//std::cout  << ph[i] << ' ';
-		//std::cout << x_re << ' ';
-		//std::cout << y_im << ' ';
-		//std::cout << 180 * ph_temp / PI << ' ' << "\n";
-
 		x_cal = x_re;
 		y_cal = y_im;
 
 	}
+
+	auto stop2 = high_resolution_clock::now();
+	auto duration2 = duration_cast<microseconds>(stop2 - start2);
+
+	std::cout << "\n Time taken by Calculation function: "
+		<< duration2.count() << " microseconds" << endl;
 
 	if (phase > 90. || phase < -90)
 	{
