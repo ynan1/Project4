@@ -1,5 +1,6 @@
 
-// This a Sin, Cos and Tan Calculator, optimised by LUTs using Smart Pointer. It does 12 iterations
+//This a Sin,Cos and Tan Cordic Calculator(for any input angle),optimised by LUTs using Smart Pointers.
+// With 12 iterations. Final Program for 12 iterations (Error less than 0.04 %).
 
 #include <stdlib.h>
 #include <iostream>
