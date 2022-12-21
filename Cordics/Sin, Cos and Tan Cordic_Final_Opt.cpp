@@ -12,7 +12,9 @@ using namespace std;
 using namespace std::chrono;
 std::mutex m;
 
-auto objects1 = std::make_unique<int[]>(14);
+// Smart pointer.
+
+auto objects1 = std::make_unique<int[]>(14);  
 auto d = std::make_unique<int[] >(14);
 auto objects2 = std::make_unique<float[]>(14);
 auto k = std::make_unique<float[] >(14);
