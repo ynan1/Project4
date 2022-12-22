@@ -18,10 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics\Sin and Cos Cordic_1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cordics\Sin and Cos Cordic.cpp">
+    <ClCompile Include="Cordics\ArcTan_Cordic_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
