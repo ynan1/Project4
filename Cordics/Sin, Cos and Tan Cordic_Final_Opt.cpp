@@ -26,14 +26,13 @@ int main()
 	float real_x = .6072;
 	float imag_y = 0.;
 	float phase;
-	float x_cal = 0;
-	float y_cal = 0;
+	float phase1 = 0;
 
 	float k[14] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };
 	float ph[14] = { 0.785398, 0.463648, 0.244979, 0.124355, 0.0624188, 0.0312398, 0.0156237, 0.00781234, 0.00390623, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };
 	float ph_temp = 0;
-	float x_re = 0;
-	float y_im = 0;
+	float x_re = 0.;
+	float y_im = 0.;
 	int i;
 	int count;
 	const double PI = 3.141592653589793238463;
@@ -42,8 +41,10 @@ int main()
 
 	std::cout << "\n This is Sin, Cos and Tan Optimised Cordic Calculator ";
 	std::cout << "\n \n Please Enter the Angle in Degree and press enter: ";
-	phase = 0.;
-	std::cin >> phase;
+
+	std::cin >> phase1;
+
+	phase = phase1;
 
 	auto start1 = high_resolution_clock::now();  // Start of Program
 
@@ -91,7 +92,7 @@ int main()
 	k[0] = 1.;
 	x_re = x_re - d[0] * y_im * k[0];
 	y_im = y_im + d[0] * x_re * k[0];
-	ph_temp = ph_temp - d[0] * PI / 4;
+	ph_temp = ph_temp - d[0] * ph[0];
 
 	// Calculate
 
@@ -104,38 +105,23 @@ int main()
 		else {
 			d[i] = -1;
 		}
-
-		if (y_im >= 0)
-		{
+		
 			float x_re1 = 0.;
 			x_re = x_re - d[i] * y_im * k[i];
 			x_re1 = x_re + d[i] * y_im * k[i];
 			y_im = y_im + d[i] * x_re1 * k[i];
 			ph_temp = ph_temp - d[i] * ph[i];
 
-		}
-		else {
-
-			float x_re2 = 0.;
-			x_re = x_re - d[i] * y_im * k[i];
-			x_re2 = x_re + d[i] * y_im * k[i];
-			y_im = y_im + d[i] * x_re2 * k[i];
-			ph_temp = ph_temp - d[i] * ph[i];
-
-		}
-
-		x_cal = x_re;
-		y_cal = y_im;
-		count = i;
+			count = i;
 	}
-
-
 
 	if (phase > 90. || phase < -90)
 	{
-		x_cal = -x_cal;
-		y_cal = -y_cal;
-	}                       // End of Program
+		x_re = -x_re;
+		y_im = -y_im;
+	}                     
+	
+	                 // End of Program
 
 	auto stop1 = high_resolution_clock::now();
 	auto duration1 = duration_cast<microseconds>(stop1 - start1);
@@ -143,11 +129,15 @@ int main()
 	std::cout << "\n Time taken by Full Program excluding std::cin and cout: "
 		<< duration1.count() << " microseconds" << endl;
 
-
-
-	std::cout << "\n Sin(" << phase << ") = " << y_cal << "\n Percentage Error in Sin, in " << count <<" iterations is: " << 100 * ((y_cal - sin(phase*PI/180))/ sin(phase * PI / 180)) <<" % " 
-		<< "\n \n Cos(" << phase << ") = " << x_cal << "\n Percentage Error in Cos, in " << count << " iterations is: " << 100 * ((x_cal - cos(phase * PI / 180)) / cos(phase * PI / 180)) << " % "
-		<< "\n \n Tan(" << phase << ") = " << (y_cal / x_cal) << "\n Percentage Error in Tan, in " << count << " iterations is: " << 100 * (((y_cal/x_cal) - tan(phase * PI / 180)) / tan(phase * PI / 180)) << " % ";
+	if (phase == 0. || phase == 360.)
+	{
+		x_re = 1.;
+		y_im = 0.;
+	}
+	std::cout << "\n ph_temp = " << ph_temp;
+	std::cout << "\n \n Sin(" << phase1 << ") = " << y_im << "\n Percentage Error in Sin, in " << count <<" iterations is: " << 100 * ((sin(phase*PI/180) - y_im)/ sin(phase * PI / 180)) <<" % "
+		<< "\n \n Cos(" << phase1 << ") = " << x_re << "\n Percentage Error in Cos, in " << count << " iterations is: " << 100 * ((cos(phase * PI / 180) - x_re) / cos(phase * PI / 180)) << " % "
+		<< "\n \n Tan(" << phase1 << ") = " << (y_im / x_re) << "\n Percentage Error in Tan, in " << count << " iterations is: " << 100 * ((tan(phase * PI / 180) - (y_im / x_re)) / tan(phase * PI / 180)) << " % ";
 	
 	std::cout << '\n';
 
