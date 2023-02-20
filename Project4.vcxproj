@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics\Sin, Cos and Tan Cordic_Final_Opt.cpp" />
+    <ClCompile Include="Cordics\Sin_Cordic_Func.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

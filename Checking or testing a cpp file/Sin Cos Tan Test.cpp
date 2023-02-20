@@ -108,16 +108,7 @@ int main()
 			ph_temp = ph_temp - d[i] * ph[i];
 
 		}
-		else {
-
-			double x_re2 = 0.;
-			x_re = x_re - d[i] * y_im * k[i];
-			x_re2 = x_re + d[i] * y_im * k[i];
-			y_im = y_im + d[i] * x_re2 * k[i];
-			ph_temp = ph_temp - d[i] * ph[i];
-
-		}
-
+		
 		x_cal = x_re;
 		y_cal = y_im;
 	}

@@ -68,5 +68,4 @@ int main()
 	std::cout << "\n" << y << ' ' << x;
 	std::cout << "\n Error %age: " << 100 * ((x - angle) / x);
 	
-	
 }

@@ -31,7 +31,7 @@ int main()
 	//typical cordic values
 
 	float k[13] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };                             //typical cordic values
-	float ph[13] = { 0.785398, 0.463648, 0.244979, 0.124355, 0.0624188, 0.0312398, 0.0156237, 0.00781234, 0.00390623, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };  // typical cordic values 
+	float ph[13] = { 0.7854, 0.4636, 0.2450, 0.1244, 0.0624, 0.0312, 0.0156, 0.0078, 0.0039, 0.0020, 0.0010, 0.0005, 0.0002 };  // typical cordic values 
 	float ph_temp = 0;
 	float x_re = 0.;
 	float y_im = 0.;
@@ -140,11 +140,19 @@ int main()
 		y_im = 0.;
 	}
 
-std::cout << "\n \n Sin(" << phase1 << ") = " << y_im << "\n Percentage Error in Sin, in " << 12 <<" iterations is: " << 100 * ((sin(phase*PI/180) - y_im)/ sin(phase * PI / 180)) <<" % "
-		<< "\n \n Cos(" << phase1 << ") = " << x_re << "\n Percentage Error in Cos, in " << 12 << " iterations is: " << 100 * ((cos(phase * PI / 180) - x_re) / cos(phase * PI / 180)) << " % "
-		<< "\n \n Tan(" << phase1 << ") = " << (y_im / x_re) << "\n Percentage Error in Tan, in " << 12 << " iterations is: " << 100 * ((tan(phase * PI / 180) - (y_im / x_re)) / tan(phase * PI / 180)) << " % ";
+	phase1 = phase * 3.1416/ 180;
+
+	printf("%c", 'Sin(';
+	printf("%d", phase1);
+	printf("%c", ') = ';
+	printf("%d", y_im);
+	printf("%c", '  ';
+
+//std::cout << "\n \n Sin(" << phase1 << ") = " << y_im << "\n Percentage Error in Sin, in " << 12 <<" iterations is: " << 100 * ((sin(phase*PI/180) - y_im)/ sin(phase * PI / 180)) <<" % "
+		//<< "\n \n Cos(" << phase1 << ") = " << x_re << "\n Percentage Error in Cos, in " << 12 << " iterations is: " << 100 * ((cos(phase * PI / 180) - x_re) / cos(phase * PI / 180)) << " % "
+		//<< "\n \n Tan(" << phase1 << ") = " << (y_im / x_re) << "\n Percentage Error in Tan, in " << 12 << " iterations is: " << 100 * ((tan(phase * PI / 180) - (y_im / x_re)) / tan(phase * PI / 180)) << " % ";
 	
-	std::cout << '\n';
+	//std::cout << '\n';
 
 }
 
