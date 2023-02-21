@@ -37,11 +37,11 @@ float sine(float test_angle)
 
 		if (angle_radian > 3.1415)
 		{
-			angle_radian = (angle_radian - 2 * 3.1416);
+			angle_radian = (angle_radian - 6.2832);
 		}
 		else if (angle_radian < -3.1415)
 		{
-			angle_radian = (angle_radian + 2 * 3.1416);
+			angle_radian = (angle_radian + 6.2832);
 		}
 
 		if (angle_radian > 0 && angle_radian < 1.5708)
@@ -61,14 +61,14 @@ float sine(float test_angle)
 
 		if (angle_radian > 1.5708)
 		{
-			angle_temp = -(3.14 - angle_radian);
+			angle_temp = -(3.1416 - angle_radian);
 			cos_v = initial_x;
 			sin_v = initial_y;
 			d[0] = -1;
 		}
 		else if (angle_radian < -1.5708)
 		{
-			angle_temp = (3.14 + angle_radian);
+			angle_temp = (3.1416 + angle_radian);
 			cos_v = initial_x;
 			sin_v = initial_y;
 			d[0] = 1;
