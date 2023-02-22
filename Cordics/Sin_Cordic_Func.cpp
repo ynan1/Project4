@@ -74,7 +74,6 @@ float sine(float test_angle)
 			d[0] = 1;
 		}
 
-		k[0] = 1.;
 		cos_v = cos_v - d[0] * sin_v * k[0];
 		sin_v = sin_v + d[0] * cos_v * k[0];
 		angle_temp = angle_temp - d[0] * ph[0];
