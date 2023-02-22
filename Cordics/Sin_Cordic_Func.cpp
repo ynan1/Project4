@@ -12,6 +12,8 @@ auto k = std::make_unique<float[] >(1900000);
 
 float sine(float test_angle)
 {
+	float cos_v = 0.;     // cos value
+	float sin_v = 0.;      // sin value    
 	float initial_x = .6072;
 	float initial_y = 0.;
 	float angle_radian = 0;
@@ -19,8 +21,6 @@ float sine(float test_angle)
 	float k[13] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };   //typical cordic values
 	float ph[13] = { 0.7854, 0.4636, 0.2450, 0.1244, 0.0624, 0.0312, 0.0156, 0.0078, 0.0039, 0.0020, 0.0010, 0.0005, 0.0002 };  // rotation angle in radian
 	float angle_temp = 0; // angle in cordic calculations
-	float cos_v = 0.;     // cos value
-	float sin_v = 0.;      // sin value    
 	int i = 0;
 	//int test_angle = 0;  // angles being tested for sin values in radian, increasing from minus two pi to plus two pi in step of 0.0001(see, line 32 - 34)
 	while (test_angle > 6.2832)
@@ -141,8 +141,8 @@ int main()
 	std::cin >> radian_angle;
 
 	float sine_v = sine(radian_angle);
-	double angle = 180 * radian_angle / 3.1416;
-	printf("Sin(%f) = %f \n", angle, sine_v);
+	float angle = 180 * radian_angle / 3.1416;
+	printf("Sin(%f%c) = %f \n", angle, "°", sine_v);
 
 	float error_percent = 100 * (sin(radian_angle) - sine_v / sin(radian_angle));
 
