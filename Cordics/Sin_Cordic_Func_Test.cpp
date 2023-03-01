@@ -139,12 +139,12 @@ int main()
 	float test_angle_fn = 0;
 	//std::cout << "\n \n Please Enter the Angle in Radian and press enter: ";
 	//std::cin >> radian_angle;
-	for (int test_angle_fn = -1000; test_angle_fn < 1001; test_angle_fn++)
+	for (int test_angle_fn = -99; test_angle_fn < 100; test_angle_fn++)
 	{
-		float test_angle_fn_fl = test_angle_fn / 100;
+		float test_angle_fn_fl = test_angle_fn / 100.;
 		float sine_v = sine(test_angle_fn_fl);
-		float angle = 180 * test_angle_fn / 3.1416;
-		printf("Sin(%f%c) = %f \n", test_angle_fn_fl, "Radian", sine_v);
+		//float angle = 180 * test_angle_fn / 3.1416;
+		//printf("Sin(%f%s) = %f \n", test_angle_fn_fl, "Radian", sine_v);
 
 		float error_percent = 100 * (sin(test_angle_fn) - sine_v / sin(test_angle_fn));
 

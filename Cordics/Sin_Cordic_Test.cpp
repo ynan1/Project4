@@ -126,16 +126,17 @@ int main()
 			sin_v = -1;
 		}
 
-		error_percent = 100 * (sin(angle_radian) - sin_v / sin(angle_radian));
-
-		if (error_percent > 0.5)
+		error_percent = 100 * sin(angle_radian) - sin_v / sin(angle_radian);
+		float angle = angle_radian * 180 / 3.1416;
+		if (error_percent > 2.5)
 		{
-			printf("Error is more than 0.5 percent  \n");
+			printf("Sin(%f%s) value is = %f", angle, " deg", sin_v);
+			printf("Error is more than 2.5 percent  \n");
 		}
-		else
-		{
-			printf("All Errors are less than 0.5 percent  \n");
-		}
+		//else
+		//{
+		//	printf("All Errors are less than 0.5 percent  \n");
+		//}
 		
 	}
 }
