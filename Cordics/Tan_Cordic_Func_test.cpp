@@ -1,4 +1,4 @@
-// Sin cordic
+// Tan cordic
 
 #include <stdlib.h>
 #include <iostream>
@@ -10,15 +10,16 @@
 auto d = std::make_unique<int[] >(100000000);
 auto k = std::make_unique<float[] >(100000000);
 
-float sine(float test_angle)
+float tann(float test_angle)
 {
 	float cos_v = 0.;     // cos value
-	float sin_v = 0.;      // sin value    
-	float initial_x = .6072;
+	float sin_v = 0.;      // sin value  
+	float tan_v = 0;     // tan value
+	float initial_x = .607197;
 	float initial_y = 0.;
 	float angle_radian = 0;
 
-	float k[13] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };   //typical cordic values
+	float k[13] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625, 0.000488281, 0.000244141 };   //typical cordic values
 	float ph[13] = { 0.7854, 0.4636, 0.2450, 0.1244, 0.0624, 0.0312, 0.0156, 0.0078, 0.0039, 0.0020, 0.0010, 0.0005, 0.0002 };  // rotation angle in radian
 	float angle_temp = 0; // angle in cordic calculations
 	int i = 0;
@@ -131,8 +132,10 @@ float sine(float test_angle)
 		sin_v = -1;
 	}
 
-	return sin_v;
-	
+	tan_v = sin_v / cos_v;
+
+	return tan_v;
+
 }
 
 
@@ -144,23 +147,23 @@ int main()
 	//std::cin >> radian_angle;
 	for (int test_angle_fn = -100000; test_angle_fn < 100001; test_angle_fn++)
 	{
-		
+
 		float test_angle_fn_fl = test_angle_fn / 10000.;
 
-		float sine_v = sine(test_angle_fn_fl);
+		float tan_v = tann(test_angle_fn_fl);
 
-		float sine_v_real = sin(test_angle_fn_fl);
+		float tan_v_real = tan(test_angle_fn_fl);
 
-		float error_abs = abs(sine_v_real - sine_v) ;
+		float error_percentage = (abs(tan_v_real - tan_v)/tan_v_real) * 100;
 
-		if (error_abs > 0.00055)
+		if (error_percentage > 5)
 		{
-			printf("Sin(%f%s) is = %f \n", test_angle_fn_fl, " radian", sine_v);
-			printf("Error is more than 0.00055 \n");
+			printf("Tan(%f%s) is = %f \n", test_angle_fn_fl, " radian", tan_v);
+			printf("Error percent is more than 5 \n");
 		}
-		else
-		{
-			printf("Error is less than 0.00055 \n");
-		}
+		//else
+		//{
+		//	printf("Error is less than 0.00055 \n");
+		//}
 	}
 }

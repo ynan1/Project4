@@ -1,4 +1,4 @@
-// Sin cordic
+// Cos cordic
 
 #include <stdlib.h>
 #include <iostream>
@@ -7,10 +7,10 @@
 
 // Smart pointer.
 
-auto d = std::make_unique<int[] >(100000000);
-auto k = std::make_unique<float[] >(100000000);
+auto d = std::make_unique<int[] >(10000000);
+auto k = std::make_unique<float[] >(10000000);
 
-float sine(float test_angle)
+float coss(float test_angle)
 {
 	float cos_v = 0.;     // cos value
 	float sin_v = 0.;      // sin value    
@@ -131,8 +131,8 @@ float sine(float test_angle)
 		sin_v = -1;
 	}
 
-	return sin_v;
-	
+	return cos_v;
+
 }
 
 
@@ -140,27 +140,25 @@ int main()
 {
 	float test_angle_fn = 0;
 
-	//std::cout << "\n \n Please Enter the Angle in Radian and press enter: ";
-	//std::cin >> radian_angle;
 	for (int test_angle_fn = -100000; test_angle_fn < 100001; test_angle_fn++)
 	{
-		
+
 		float test_angle_fn_fl = test_angle_fn / 10000.;
 
-		float sine_v = sine(test_angle_fn_fl);
+		float coss_v = coss(test_angle_fn_fl);
 
-		float sine_v_real = sin(test_angle_fn_fl);
+		float cos_v_real = cos(test_angle_fn_fl);
 
-		float error_abs = abs(sine_v_real - sine_v) ;
+		float error_abs = abs(cos_v_real - coss_v);
 
 		if (error_abs > 0.00055)
 		{
-			printf("Sin(%f%s) is = %f \n", test_angle_fn_fl, " radian", sine_v);
+			printf("Cos(%f%s) is = %f \n", test_angle_fn_fl, " radian", coss_v);
 			printf("Error is more than 0.00055 \n");
 		}
 		else
 		{
-			printf("Error is less than 0.00055 \n");
+			printf("Error in evaluated Cos value is less than 0.00055 \n");
 		}
 	}
 }
