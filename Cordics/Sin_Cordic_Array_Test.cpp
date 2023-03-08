@@ -100,7 +100,7 @@ float tann(float test_angle)
 		sin_v = sin_v + d[i] * cos_v1 * k[i];
 
 		angle_temp = angle_temp - d[i] * ph[i];
-		
+
 	}
 
 
@@ -122,7 +122,7 @@ float tann(float test_angle)
 		cos_v = 1.;   //THIS IS DONE TO GET ACCURATE VALUES NEAR ANGLES 0/360
 		sin_v = 0.;
 	}
-	
+
 	//if (angle_radian == 3.141590 || angle_radian == -3.141590);
 	//{
 	//	cos_v = -1.;
@@ -144,89 +144,27 @@ float tann(float test_angle)
 	tan_v = sin_v / cos_v;
 	float tan_v1 = tan_v;
 
-	if (tan_v > 35680. && tan_v <= 40680.)
+	if (tan_v >= 299.)
 	{
-		tan_v = tan_v * 30;
-	}
-	if (tan_v > 23680. && tan_v <= 35680.)
-	{
-		tan_v = tan_v * 4.9;
-	}
-	if (tan_v > 19680. && tan_v <= 23680.)
-	{
-		tan_v = tan_v * 2.75;
-	}
-	if (tan_v > 16000. && tan_v <= 19680.)
-	{
-		tan_v = tan_v * 2.05;
-	}
-	if (tan_v > 12680. && tan_v <= 16000.)
-	{
-		tan_v = tan_v * 1.75;
-	}
-	if (tan_v > 12280. && tan_v <= 12680.)
-	{
-		tan_v = tan_v * 1.45;
-	}
-	if (tan_v > 8810. && tan_v <= 12280.)
-	{
-		tan_v = tan_v * 1.35;
-	}
-	if (tan_v > 6480. && tan_v <= 8810.)
-	{
-		tan_v = tan_v * 1.25;
-	}
-	if (tan_v > 5880. && tan_v <= 6480.)
-	{
-		tan_v = tan_v * 1.15;
-	}
-	if (tan_v > 5200. && tan_v <= 5880.)
-	{
-		tan_v = tan_v * 1.09;
-	}
-	if (tan_v > 4680. && tan_v <= 5200.)
-	{
-		tan_v = tan_v * 1.08;
-	}
-	if (tan_v > 3280. && tan_v <= 4680.)
-	{
-		tan_v = tan_v * 1.07;
-	}
-	if (tan_v > 2720. && tan_v <= 3580.)
-	{
-		tan_v = tan_v * 1.06;
+		if (tan_v > 1.01 * tan_v)
+			tan_v = tan_v * 1.001;
 	}
 
-	if (tan_v > 2500. && tan_v <= 2720.)
-	{
-		tan_v = tan_v * 1.055;
-	}
-	if (tan_v > 1920. && tan_v <= 2500.)
-	{
-		tan_v = tan_v * 1.05;
-	}
-	if (tan_v > 1680. && tan_v <= 1920.)
-	{
-		tan_v = tan_v * 1.045;
-	}
-	if (tan_v > 1270. && tan_v <= 1680.)
-	{
-		tan_v = tan_v * 1.035;
-	}
-	if (tan_v > 1100. && tan_v <= 1270.)
+	if (tan_v > 860. && tan_v <= 1395.)
 	{
 		tan_v = tan_v * 1.025;
 	}
-	if (tan_v > 690. && tan_v <= 1100.)
+
+	if (tan_v > 1395. && tan_v <= 1670.)
 	{
-		tan_v = tan_v * 1.02;
+		tan_v = tan_v * 1.035;
 	}
 
-	if(tan_v >= 299. && tan_v < 690)
+	if (tan_v > 1670. && tan_v <= 2700.)
 	{
-		tan_v = tan_v * 1.01;
+		tan_v = tan_v * 1.045;
 	}
-	
+
 	return tan_v;
 
 }
@@ -248,7 +186,7 @@ int main()
 
 		float tan_v_real = tan(test_angle_fn_fl);
 
-		float error_percent = (abs(tan_v_real - tan_v)/ tan_v_real) * 100;
+		float error_percent = (abs(tan_v_real - tan_v) / tan_v_real) * 100;
 
 		if (error_percent > 1)
 		{
