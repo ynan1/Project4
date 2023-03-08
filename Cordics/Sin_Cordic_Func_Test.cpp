@@ -14,12 +14,13 @@ float sine(float test_angle)
 {
 	float cos_v = 0.;     // cos value
 	float sin_v = 0.;      // sin value    
-	float initial_x = .6072;
+	float initial_x = .6072069345175873;
 	float initial_y = 0.;
 	float angle_radian = 0;
 
 	float k[13] = { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.00195312, 0.000976562, 0.000488281, 0.000244141 };   //typical cordic values
-	float ph[13] = { 0.7854, 0.4636, 0.2450, 0.1244, 0.0624, 0.0312, 0.0156, 0.0078, 0.0039, 0.0020, 0.0010, 0.0005, 0.0002 };  // rotation angle in radian
+	//float ph[13] = { 0.7854, 0.4636, 0.2450, 0.1244, 0.0624, 0.0312, 0.0156, 0.0078, 0.0039, 0.0020, 0.0010, 0.0005, 0.0002 };  // rotation angle in radian
+	float ph[13] = { 0.785396, 0.463584, 0.244973, 0.1243982, 0.062398754, 0.031199377, 0.0155996885, 0.00779984425, 0.003899922125, 0.0019499610625, 0.00097498053125, 0.000487490265625, 0.000193745132812 };  // rotation angle in radian
 	float angle_temp = 0; // angle in cordic calculations
 	int i = 0;
 	//int test_angle = 0;  // angles being tested for sin values in radian, increasing from minus two pi to plus two pi in step of 0.0001(see, line 32 - 34)
@@ -153,14 +154,14 @@ int main()
 
 		float error_abs = abs(sine_v_real - sine_v) ;
 
-		if (error_abs > 0.00055)
+		if (error_abs > 0.0005)
 		{
-			printf("Sin(%f%s) is = %f \n", test_angle_fn_fl, " radian", sine_v);
-			printf("Error is more than 0.00055 \n");
+			printf("Sin(%f%s) is = %f %f \n", test_angle_fn_fl, " radian", sine_v, sine_v_real);
+			printf("Error is more than 0.0001 \n");
 		}
-		else
-		{
-			printf("Error is less than 0.00055 \n");
-		}
+		//else
+		//{
+		//	printf("Error is less than 0.00055 \n");
+		//}
 	}
 }
