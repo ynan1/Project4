@@ -17,9 +17,4 @@
       <UniqueIdentifier>{d82f8d2a-c8d2-45eb-97ec-4f9832a19efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Cordics\Cos_Cordic_Func_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>

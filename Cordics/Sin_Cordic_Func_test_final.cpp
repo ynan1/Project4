@@ -80,7 +80,7 @@ float tann(float test_angle)
 	angle_temp = angle_temp - d[0] * ph[0];
 
 
-	// Calculate
+	// Calculate cordic
 
 	for (int i = 1; i < 33; i++)
 
