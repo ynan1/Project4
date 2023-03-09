@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics\SIN_CORDIC_CHECK.cpp">
+    <ClCompile Include="Cordics\Cos_Cordic_Func_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
