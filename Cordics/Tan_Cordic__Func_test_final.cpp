@@ -91,13 +91,13 @@ int main()
 
         double tan_v_real = tan(test_angle_fn_fl);
 
-        double error_abs_tan = (abs(tan_v_real - tan_v)/ tan_v_real) * 100;
+        double error_percent_tan = (abs(tan_v_real - tan_v)/ tan_v_real) * 100;
 
-        if (error_abs_tan > 1)  
+        if (error_percent_tan > .8)  
 
         {
-            printf("Error is more than 1 percent \n");
-            printf("tan(%f%s) is = %f  %f    %f \n", test_angle_fn_fl, " radian", tan_v, tan_v_real, error_abs_tan);
+            printf("Error is more than 0.1 percent \n");
+            printf("tan(%f%s) is = %f  %f    %f \n", test_angle_fn_fl, " radian", tan_v, tan_v_real, error_percent_tan);
         }
 
     }

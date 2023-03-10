@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics\Tan_Cordic__Func_Check.cpp" />
+    <ClCompile Include="Cordics_Final\Tan_Cordic__Func_test_final.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
