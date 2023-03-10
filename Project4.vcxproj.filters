@@ -17,4 +17,9 @@
       <UniqueIdentifier>{d82f8d2a-c8d2-45eb-97ec-4f9832a19efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cordics\Tan_Cordic__Func_Check.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

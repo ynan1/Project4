@@ -6,10 +6,10 @@
 int main()
 {
 	//double pi = 3.141592653589793238463;
-	double ph = 0.062399;
+	double ph = 1.;
 	std::cout << ph << ", ";
 
-	for (int i = 1; i < 29; i++)
+	for (int i = 1; i < 61; i++)
 	{
 		ph = ph / 2;
 		std::cout << ph << ", ";
