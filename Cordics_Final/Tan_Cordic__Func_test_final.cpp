@@ -50,7 +50,7 @@ double fn(double test_angle)
 
     angle = angles[0];
 
-    for (int i = 0; i < 101; i++)
+    for (int i = 0; i < 31; i++)
     {
         if (theta < 0.0)
             sigma = -1.0;
@@ -75,14 +75,10 @@ double fn(double test_angle)
 
     else
          angle = angle / 2.0;
-
+         k[i] = k[i] / 2.0;
     }
 
     value = N / D;
-
-    if (theta == 0.49999999587790787340 || theta == -0.49999999587790787340)
-
-         value = 77220471.;
 
     return value;
 
@@ -95,7 +91,7 @@ int main()
     for (int test_angle_fn = -10000000; test_angle_fn < 10000001; test_angle_fn++) 
     {                                                   // angle values from -100 radian to +100 radian
                                                         // in step of .0001 incremented
-        double test_angle_fn_fl = test_angle_fn / 100000.;
+        double test_angle_fn_fl = test_angle_fn / 10000.;
 
         double tan_v = fn(test_angle_fn_fl);
 
