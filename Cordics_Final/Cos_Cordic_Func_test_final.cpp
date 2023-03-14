@@ -149,19 +149,19 @@ int main()
 
 		for (int n = 0;n < 10000; n++)
 		{
-			double test_angle_fn_fl_neg = - 2 * pi * (((double)rand()) / RAND_MAX);
+			double test_angle_fn_fl = - 2 * pi * (((double)rand()) / RAND_MAX);
 
-			double cos_v = fn(test_angle_fn_fl_neg);
+			double cos_v = fn(test_angle_fn_fl);
 
-			double cos_v_real = cos(test_angle_fn_fl_neg);
+			double cos_v_real = cos(test_angle_fn_fl);
 
 			double error_abs_cos = abs(cos_v_real - cos_v);
 
-			if (error_abs_cos > 0.00001)
+			if (error_abs_cos > 0.0001)
 
 			{
 				printf("Error is more than .0001 \n");
-				printf("cos(%f%s) = %f  %f    %f \n", test_angle_fn_fl_neg, " radian", cos_v, cos_v_real, error_abs_cos);
+				printf("cos(%f%s) = %f  %f    %f \n", test_angle_fn_fl, " radian", cos_v, cos_v_real, error_abs_cos);
 			}
 
 		}
