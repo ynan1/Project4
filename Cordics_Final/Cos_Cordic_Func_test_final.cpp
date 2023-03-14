@@ -8,11 +8,12 @@
 // Smart pointer.
 const double pi = 3.141592653589793238463;
 
-auto d = std::make_unique<int[] >(100000000);
+auto d = std::make_unique<int[] >(100);
 //auto k = std::make_unique<double[] >(100000000);
 
 double fn(double test_angle)
 {
+
 	double cos_v = 0.;
 	double sin_v = 0.;
 	double tan_v = 0;
@@ -157,11 +158,11 @@ int main()
 
 			double error_abs_cos = abs(cos_v_real - cos_v);
 
-			if (error_abs_cos > 0.0001)
+			if (error_abs_cos > 0.00005)
 
 			{
-				printf("Error is more than .0001 \n");
-				printf("cos(%f%s) = %f  %f    %f \n", test_angle_fn_fl, " radian", cos_v, cos_v_real, error_abs_cos);
+				printf("Error is more than .0001, please see the values below: \n");
+				printf("cos(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", cos_v, "cos value real =", cos_v_real, "percent error = ", error_abs_cos);
 			}
 
 		}

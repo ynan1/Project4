@@ -6,7 +6,7 @@
 #include <string>
 
 // Smart pointer.
-auto d = std::make_unique<int[] >(100000000);
+auto d = std::make_unique<int[] >(100);
 
 const double pi = 3.141592653589793238463;
 
@@ -161,8 +161,8 @@ int main()
 			if (error_abs_sin > 0.0001)
 
 			{
-				printf("Error is more than .0001 \n");
-				printf("sin(%f%s) = %f   %f    %f \n", test_angle_fn_fl, " radian", sin_v, sin_v_real, error_abs_sin);
+				printf("Error is more than .0001, please see the values below: \n");
+				printf("sin(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", sin_v, "sin value real =", sin_v_real, "percent error = ", error_abs_sin);
 			}
 		}
 	}
