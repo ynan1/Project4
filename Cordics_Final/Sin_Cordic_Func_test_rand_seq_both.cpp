@@ -140,6 +140,7 @@ double fn(double test_angle)
 }
 
 
+
 int main()
 {
 	double test_angle_fn = 0;
@@ -150,7 +151,7 @@ int main()
 
 		for (int n = 0;n < 10000; n++)
 		{
-			double test_angle_fn_fl = -2*pi* (((double)rand()) / RAND_MAX);
+			double test_angle_fn_fl = - 100*(((double)rand()) / RAND_MAX);
 
 			double sin_v = fn(test_angle_fn_fl);
 
@@ -167,4 +168,22 @@ int main()
 		}
 	}
 
+	for (int test_angle_fn = -1000000; test_angle_fn < 1000001; test_angle_fn++)
+	{
+
+		double test_angle_fn_fl = test_angle_fn / 10000.;
+
+		double sin_v = fn(test_angle_fn_fl);
+
+		double sin_v_real = sin(test_angle_fn_fl);
+
+		double error_abs_sin = abs(sin_v_real - sin_v);  
+
+			if (error_abs_sin > .0001) // && abs(sin_v) > .001 && abs(sin_v) <= .1)
+
+			{
+				printf("Error is more than .0001  \n");
+				printf("sin(%f%s) = %f  %f    %f \n", test_angle_fn_fl, " radian", sin_v, sin_v_real, error_abs_sin);
+			}
+	}
 }
