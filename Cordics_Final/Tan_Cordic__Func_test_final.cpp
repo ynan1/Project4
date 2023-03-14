@@ -94,7 +94,7 @@ int main()
 
         for (int n = 0;n < 10000; n++)
         {
-            double test_angle_fn_fl = 2 * pi * (((double)rand()) / RAND_MAX);
+            double test_angle_fn_fl = 2 * pi * (((double)rand()) / RAND_MAX); // Put minus sign to check minus values
 
             double tan_v = fn(test_angle_fn_fl);
 
