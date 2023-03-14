@@ -161,7 +161,7 @@ int main()
 			if (error_abs_cos > 0.00005)
 
 			{
-				printf("Error is more than .0001, please see the values below: \n");
+				printf("Error is more than .00005, please see the values below: \n");
 				printf("cos(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", cos_v, "cos value real =", cos_v_real, "percent error = ", error_abs_cos);
 			}
 
