@@ -162,7 +162,7 @@ int main()
 
 			{
 				printf("Error is more than .0001, please see the values below: \n");
-				printf("sin(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", sin_v, "sin value real =", sin_v_real, "percent error = ", error_abs_sin);
+				printf("sin(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", sin_v, "sin value real =", sin_v_real, "abs error = ", error_abs_sin);
 			}
 		}
 	}
