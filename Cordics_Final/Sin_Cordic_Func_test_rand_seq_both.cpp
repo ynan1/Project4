@@ -159,7 +159,7 @@ int main()
 
 			double error_abs_sin = abs(sin_v_real - sin_v);
 
-			if (error_abs_sin > 0.0001)
+			if (error_abs_sin > 0.00001)
 
 			{
 				printf("Error is more than .0001 \n");
@@ -169,21 +169,23 @@ int main()
 	}
 
 	for (int test_angle_fn = -1000000; test_angle_fn < 1000001; test_angle_fn++)
-	{
+{
 
-		double test_angle_fn_fl = test_angle_fn / 10000.;
+	double test_angle_fn_fl = test_angle_fn / 10000.;
 
-		double sin_v = fn(test_angle_fn_fl);
+	double sin_v = fn(test_angle_fn_fl);
 
-		double sin_v_real = sin(test_angle_fn_fl);
+	double sin_v_real = sin(test_angle_fn_fl);
 
-		double error_abs_sin = abs(sin_v_real - sin_v);  
+	double error_abs_sin = abs(sin_v_real - sin_v);  
 
-			if (error_abs_sin > .0001) // && abs(sin_v) > .001 && abs(sin_v) <= .1)
+		if (error_abs_sin > .0001) // && abs(sin_v) > .001 && abs(sin_v) <= .1)
 
-			{
-				printf("Error is more than .0001  \n");
-				printf("sin(%f%s) = %f  %f    %f \n", test_angle_fn_fl, " radian", sin_v, sin_v_real, error_abs_sin);
-			}
-	}
+		{
+			printf("Error is more than .0001  \n");
+			printf("sin(%f%s) = %f  %f    %f \n", test_angle_fn_fl, " radian", sin_v, sin_v_real, error_abs_sin);
+		}
 }
+
+}
+
