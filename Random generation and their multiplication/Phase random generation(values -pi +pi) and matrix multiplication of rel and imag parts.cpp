@@ -32,6 +32,10 @@ int main()
         s[i] = (rand() % (3142 - -3142)) + -3142; //values starting from 1 and goes upto 100. 
         //syntax:(rand() % (upper limit -lower limit)) + lower limit
         k[i] = (rand() % (3142 - -3142)) + -3142;
+         std::cout << s[i] ;
+         std::cout << k[i] << ' ';
+
+
     }
    // std::cout << "Values of Ss are: " << '\n'; // print
 

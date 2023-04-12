@@ -76,7 +76,7 @@ int main()
 
 	for (int i = 0; i < 10000; i++)   // Arrays of 10,000 elements taken here.
 	{
-		a[i] = (rand() % (1570796326 - 0)) + 0; //values starting from 1 and goes upto 100. 
+		a[i] = (rand() % (157079632679 - 0)) + 0; //values starting from 1 and goes upto 100. 
 		//syntax:(rand() % (upper limit -lower limit)) + lower limit
 		b[i] = (rand() % (0 - -1570796326)) + -1570796326;
 		std::cout << a[i] << ' ' ;
