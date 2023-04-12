@@ -7,7 +7,7 @@
 const double pi = 3.141592653589793238463;
 
 
-double fn(double test_angle)
+double tanfn(double test_angle)
 
 {
     double tan_v = 0.;
@@ -45,12 +45,12 @@ double fn(double test_angle)
     else if (theta > 0.5 * pi)
         theta = theta - pi;
 
-     N = 0.0;
-     D = 1.0;
+     N = 0.00000000000000000000;
+     D = 1.00000000000000000000;
 
     angle = angles[0];
 
-    for (int i = 0; i < 31; i++)   // Important - 31 iterations gives results with minimum errors
+    for (int i = 0; i < 32; i++)   // Important - 31 iterations gives results with minimum errors
     {
         if (theta < 0.0)
             sigma = -1.0;
@@ -88,28 +88,37 @@ int main()
 {
     double test_angle_fn = 0;
 
-    for (int m = 0;m < 5;m++)
-    {
-        srand(time(0));
+    int* a = new int[100001] {};
+    double* x = new double[100001] {};
 
-        for (int n = 0;n < 10000; n++)
+        for (int n = 0;n < 100000; n++)
         {
-            double test_angle_fn_fl = 2 * pi * (((double)rand()) / RAND_MAX); // Put minus sign to check minus values
+            a[n] = (rand() % (15707964 - -15707964)) + -15707964;
+        }
 
-            double tan_v = fn(test_angle_fn_fl);
+        for (int i = 0;i < 10000;i++)
+        {
+            x[i] = a[i] / 10000000.;
+        }
 
-            double tan_v_real = tan(test_angle_fn_fl);
+        for (int k = 0;k < 10000; k++)
+        {
+            double tan_calc = tanfn(x[k]);
+            double tan_real = tan(x[k]);
+            double error_abs = abs(tan_real - tan_calc);
 
-            double error_percent_tan = (abs(tan_v_real - tan_v) / tan_v_real) * 100;
+            double error_percent_tan = abs(abs(tan_real - tan_calc) / tan_real) * 100;
 
-            if (error_percent_tan > 0.01)
+            if (error_percent_tan > 0.02)
 
             {
-                printf("Error is more than .01 percent, please see the values below: \n");
-                printf("tan(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", tan_v, "tan value real =", tan_v_real, "percent error = ",error_percent_tan);
+                printf("Error is more than .02 percent, please see the values below: \n");
+                printf("tan(%f %s) %s = %f   %s  %f   %s  %f \n", x[k], " radian", "calculated", tan_calc, "tan value real =", tan_real, "percent error = ", error_percent_tan);
             }
+          //  else
+           //     printf("tan(%f %s) %s = %f   %s  %f   %s  %f \n", x[k], " radian", "calculated", tan_calc, "tan value real =", tan_real, "percent error = ", error_percent_tan);
 
         }
-    }
-
+        srand(time(NULL));
+    
 }

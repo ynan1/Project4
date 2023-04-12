@@ -147,7 +147,7 @@ int main()
 
 	for (int m = 0;m < 5;m++)
 	{
-		srand(time(0));
+		srand(time(NULL));
 
 		for (int n = 0;n < 10000; n++)
 		{

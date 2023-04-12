@@ -65,7 +65,7 @@ double arctan(double real_x, double imag_x)
 int main()
 {
 	double x, y;
-	double angle = arctan(3, 7);
+	double angle = arctan(1, 7);
 	y = (7. / 3);
 	x =180 * atan(y)/PI;
 	std::cout << "\n" << y << ' ' << x << ' ' << angle;

@@ -17,7 +17,7 @@ double fn(double test_angle)
 	double cos_v = 0.;
 	double sin_v = 0.;
 	double tan_v = 0;
-	double initial_x = .6072;
+	double initial_x = 0.6072529350088812561694;
 	double initial_y = 0.;
 	double angle_radian = 0;
 
@@ -158,10 +158,10 @@ int main()
 
 			double error_abs_cos = abs(cos_v_real - cos_v);
 
-			if (error_abs_cos > 0.00005)
+			if (error_abs_cos > 0.00000001)
 
 			{
-				printf("Error is more than .00005, please see the values below: \n");
+				printf("Error is more than .00000001, please see the values below: \n");
 				printf("cos(%f %s) %s = %f   %s  %f   %s  %f \n", test_angle_fn_fl, " radian", "calculated", cos_v, "cos value real =", cos_v_real, "abs error = ", error_abs_cos);
 			}
 

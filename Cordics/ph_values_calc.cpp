@@ -9,10 +9,10 @@ int main()
 	double ph = 1.;
 	std::cout << ph << ", ";
 
-	for (int i = 1; i < 201; i++)
+	for (int i = 1; i < 61; i++)
 	{
 		ph = ph / 2;
-		std::cout << ph << ", ";
+		std::cout << atan(ph) << ", ";
 
 	}
 }
