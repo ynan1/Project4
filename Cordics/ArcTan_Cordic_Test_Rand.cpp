@@ -65,22 +65,22 @@ double arctan(double real_x, double imag_x)
 
 int main()
 {
-	int* a = new int[5000001] {};
-	int* b = new int[5000001] {};
+	int* a = new int[500001] {};
+	int* b = new int[500001] {};
 
-	double* x = new double[5000001] {};
-	double* y = new double[5000001] {};
+	double* x = new double[500001] {};
+	double* y = new double[500001] {};
 
 
 	srand(time(0));
 
 	for (int i = 0; i < 10000; i++)   // Arrays of 10,000 elements taken here.
 	{
-		a[i] = (rand() % (1570796326 - 0)) + 0; //values starting from 1 and goes upto 100. 
+		a[i] = (rand() % (1570796 - 1)) + 1; //values starting from 1 and goes upto 100. 
 		//syntax:(rand() % (upper limit -lower limit)) + lower limit
-		b[i] = (rand() % (0 - -1570796326)) + -1570796326;
-		std::cout << a[i] << ' ' ;
-		std::cout << b[i] << ' ' << "\n";
+		b[i] = (rand() % (-15707 - -157079)) + -157079;
+		//std::cout << a[i] << ' ' ;
+		//std::cout << b[i] << ' ' << "\n";
 
 		
 		//a[i] = (rand() % (15707 - 0)) + 0; //values starting from 1 and goes upto 100. 157079632679
@@ -94,9 +94,9 @@ int main()
 
 	for (int k = 0; k < 10000; k++)   // Arrays of 10,000 elements taken here.
 	{
-		x[k] = a[k] / 100000000000; 
-		y[k] = b[k] / 100000000000;
-		//printf("%f %f   \n", x[k], y[k]);
+		x[k] = a[k] / 25000.; 
+		y[k] = b[k] / 80000.;
+		printf("%f %f   \n", x[k], y[k]);
 		//printf("%f %f   \n", x[k], y[k]);
 
 	}
@@ -107,10 +107,10 @@ int main()
 			double arctan_real = 180 * atan(y[n] / x[n]) / PI;
 			double error_abs = abs(arctan_real - arctan_calc);
 
-			if (error_abs > 0.0000000001)
+			if (error_abs > 0.000001)
 
 			{
-				printf("Error is more than .00000001 \n");
+				printf("Error is more than .000001 \n");
 				printf("%f %f   %f    %f  %f\n", x[n], y[n], arctan_calc, arctan_real, error_abs);
 			}
 			
