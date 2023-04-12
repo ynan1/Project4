@@ -37,7 +37,7 @@ double arctan(double real_x, double imag_x)
 
 	int i = 0;
 
-	while (tol > 10e-8) 
+	while (tol > 5e-10) 
 	{
 
 		if (y_im > 0.)
@@ -84,8 +84,8 @@ double arctan(double real_x, double imag_x)
 int main()
 {
 	double x, y;
-	double angle = arctan(1, 7);
-	y = (7. / 1);
+	double angle = arctan(2.1, 700000.);
+	y = (700000. / 2.1);
 	x = 180 * atan(y) / PI;
 	std::cout << "\n" << y << ' ' << x << ' ' << angle;
 	std::cout << "\n Error %age: " << 100 * ((x - angle) / x);
