@@ -12,28 +12,46 @@ double arctan(double real_x, double imag_x)
 	double ph[61] = { 7.8539816339744830962e-01, 4.6364760900080611621e-01, 2.4497866312686415417e-01, 1.2435499454676143503e-01, 6.2418809995957348474e-02, 3.1239833430268276254e-02, 1.5623728620476830803e-02, 7.8123410601011112965e-03, 3.9062301319669718276e-03, 1.9531225164788186851e-03, 9.7656218955931943040e-04, 4.8828121119489827547e-04, 2.4414062014936176402e-04, 1.2207031189367020424e-04, 6.1035156174208775022e-05, 3.0517578115526096862e-05, 1.5258789061315762107e-05, 7.6293945311019702634e-06, 3.8146972656064962829e-06, 1.9073486328101870354e-06, 9.5367431640596087942e-07, 4.7683715820308885993e-07, 2.3841857910155798249e-07, 1.1920928955078068531e-07, 5.9604644775390554414e-08, 2.9802322387695303677e-08, 1.4901161193847655147e-08, 7.4505805969238279871e-09, 3.7252902984619140453e-09, 1.8626451492309570291e-09, 9.3132257461547851536e-10, 4.6566128730773925778e-10, 2.3283064365386962890e-10, 1.1641532182693481445e-10, 5.8207660913467407226e-11, 2.9103830456733703613e-11, 1.4551915228366851807e-11, 7.2759576141834259033e-12, 3.6379788070917129517e-12, 1.8189894035458564758e-12, 9.0949470177292823792e-13, 4.5474735088646411896e-13, 2.2737367544323205948e-13, 1.1368683772161602974e-13, 5.6843418860808014870e-14, 2.8421709430404007435e-14, 1.4210854715202003717e-14, 7.1054273576010018587e-15, 3.5527136788005009294e-15, 1.7763568394002504647e-15, 8.8817841970012523234e-16, 4.4408920985006261617e-16, 2.2204460492503130808e-16, 1.1102230246251565404e-16, 5.5511151231257827021e-17, 2.7755575615628913511e-17, 1.3877787807814456755e-17, 6.9388939039072283776e-18, 3.4694469519536141888e-18, 1.7347234759768070944e-18, 8.673617379884035472e-19 };
 
 	double ph_temp;
-	double y_re;
-	double y_im;
+	double y_re = 0;
+	double y_im = 0;
 	double tol = 1;
 	int i = 0;
+	int sign = 0;
+
+	if (real_x < 0. && imag_x > 0.)
+	{
+		real_x = - real_x;
+		sign = 1;
+	}
+
+	else if (real_x < 0. && imag_x < 0.)
+	{
+		real_x = - real_x;
+		imag_x = - imag_x;
+	}
+
+	else if (real_x > 0.)
+	{
+		real_x = real_x;
+		imag_x = imag_x;
+	}
 
 
-	//d = z >= 0 ? 0 : -1;\n    tx = x - (((y >> k) ^ d) - d);\n    ty = y + (((x >> k) ^ d) - d);
-	if (imag_x > 0)
+	if (imag_x > 0.)
 	{
 		ph_temp = -PI / 2;
 		y_re = imag_x;
 		y_im = -real_x;
 
 	}
-	else if (imag_x < 0)
+	else if (imag_x < 0.)
 	{
 		ph_temp = PI / 2;
 		y_re = -imag_x;
 		y_im = real_x;
 	}
 
-	while (tol > 5e-9)
+	while (tol > 5e-10)
 	{
 
 		if (y_im > 0.)
@@ -51,34 +69,42 @@ double arctan(double real_x, double imag_x)
 			ph_temp = ph_temp + ph[i];
 		}
 		tol = fabs(ph_temp + angle_cal);
-		angle_cal = -ph_temp;
+		angle_cal = - ph_temp;
 		i++;
 	}
 
-	std::cout << "\n" << i - 1;
+	if (sign == 1)
+	{
+		angle_cal =  - angle_cal;
+	}
+
+	else 
+	{
+		angle_cal = angle_cal;
+	}
+
+	//std::cout << "\n" << i - 1;
 	return 180 * angle_cal / PI;
 
-	//jump:
-	//return 180 * angle_cal / PI;
 }
 
 
 int main()
 {
-	int* a = new int[500001] {};
-	int* b = new int[500001] {};
+	int* a = new int[50001] {};
+	int* b = new int[50001] {};
 
-	double* x = new double[500001] {};
-	double* y = new double[500001] {};
+	double* x = new double[50001] {};
+	double* y = new double[50001] {};
 
 
 	srand(time(0));
 
 	for (int i = 0; i < 10000; i++)   // Arrays of 10,000 elements taken here.
 	{
-		a[i] = (rand() % (15707 -  - 15707)) + -1; //values starting from 1 and goes upto 100. 
+		a[i] = (rand() % (15707 -  - 15707)) + -10000; //values starting from 1 and goes upto 100. 
 		//syntax:(rand() % (upper limit -lower limit)) + lower limit
-		b[i] = (rand() % (15707 -  - 15707)) + 0; //values starting from 1 and goes upto 100. 
+		b[i] = (rand() % (15707 -  - 15707)) + -10000; //values starting from 1 and goes upto 100. 
 		//std::cout << a[i] << ' ' ;
 		//std::cout << b[i] << ' ' << "\n";
 
@@ -96,8 +122,6 @@ int main()
 	{
 		x[k] = a[k] / 100.; 
 		y[k] = b[k] / 100.;
-		printf("%f %f   \n", x[k], y[k]);
-		//printf("%f %f   \n", x[k], y[k]);
 
 	}
 
@@ -113,14 +137,7 @@ int main()
 				printf("Error is more than .000001 \n");
 				printf("%f %f   %f    %f  %f\n", x[n], y[n], arctan_calc, arctan_real, error_abs);
 			}
-			
-			//double sleep(1.1);
-			//srand(time(0));
-
-			//float delay(0.1);
-			//srand(time(0));
 
 		}
-	//}
 
 }
