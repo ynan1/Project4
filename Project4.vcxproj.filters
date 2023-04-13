@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics_Final\ArcTan_Cordic_ManualEntry_-.5pi to .5pi.cpp">
+    <ClCompile Include="Cordics_Final\ArcTan_ForCordic_AnyRandValue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
