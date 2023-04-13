@@ -58,24 +58,6 @@ double arctan(double real_x, double imag_x)
 		angle_cal = -ph_temp;
 		i++;
 	}
-	if (imag_x == 0 && real_x > 0)
-	{
-		angle_cal = 0;
-	}
-
-	if (imag_x == 0 && real_x < 0)
-	{
-		angle_cal = PI;
-	}
-
-	if (real_x == 0 && imag_x > 0)
-	{
-		angle_cal = PI / 2;
-	}
-	if (real_x == 0 && imag_x < 0)
-	{
-		angle_cal = -PI / 2;
-	}
 
 	std::cout << "\n" << i - 1;
 	return 180 * angle_cal / PI;
@@ -84,10 +66,10 @@ double arctan(double real_x, double imag_x)
 int main()
 {
 	double x, y;
-	double angle = arctan(2100000, 1.);
-	y = (1. / 2100000);
+	double angle = arctan(1, 0.0001);
+	y = (0.0001 / 1.);
 	x = 180 * atan(y) / PI;
-	std::cout << "\n" << y << ' ' << x << ' ' << angle;
+	std::cout << "\n" << x << ' ' << angle;
 	std::cout << "\n Error %age: " << 100 * ((x - angle) / x);
 
 }

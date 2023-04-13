@@ -43,7 +43,7 @@ double arctan(double real_x, double imag_x)
 			y_im = y_im - y_re1 * k[i];
 			ph_temp = ph_temp - ph[i];
 		}
-		else if (y_im < 0.)
+		else if (y_im < 0)
 		{
 			y_re = y_re - y_im * k[i];
 			double y_re1 = y_re + y_im * k[i];
@@ -65,11 +65,11 @@ double arctan(double real_x, double imag_x)
 
 int main()
 {
-	int* a = new int[500001] {};
-	int* b = new int[500001] {};
+	int* a = new int[50001] {};
+	int* b = new int[50001] {};
 
-	double* x = new double[500001] {};
-	double* y = new double[500001] {};
+	double* x = new double[50001] {};
+	double* y = new double[50001] {};
 
 
 	srand(time(0));

@@ -33,7 +33,7 @@ double arctan(double real_x, double imag_x)
 		y_im = real_x;
 	}
 
-	while (tol > 5e-9)
+	while (tol > 5e-10)
 	{
 
 		if (y_im > 0.)
@@ -43,7 +43,7 @@ double arctan(double real_x, double imag_x)
 			y_im = y_im - y_re1 * k[i];
 			ph_temp = ph_temp - ph[i];
 		}
-		else if (y_im < 0.)
+		else if (y_im < 0)
 		{
 			y_re = y_re - y_im * k[i];
 			double y_re1 = y_re + y_im * k[i];
@@ -66,19 +66,19 @@ double arctan(double real_x, double imag_x)
 int main()
 {
 	int* a = new int[500001] {};
-	int* b = new int[500001] {};
+	int* b = new int[5000001] {};
 
 	double* x = new double[500001] {};
-	double* y = new double[500001] {};
+	double* y = new double[5000001] {};
 
 
 	srand(time(0));
 
-	for (int i = 0; i < 10000; i++)   // Arrays of 10,000 elements taken here.
+	for (int i = 0; i < 100000; i++)   // Arrays of 10,000 elements taken here.
 	{
-		a[i] = (rand() % (15707 -  - 15707)) + -1; //values starting from 1 and goes upto 100. 
+		a[i] = (rand() % (157079 -  - 157079)) + 0; //values starting from 1 and goes upto 100. 
 		//syntax:(rand() % (upper limit -lower limit)) + lower limit
-		b[i] = (rand() % (15707 -  - 15707)) + 0; //values starting from 1 and goes upto 100. 
+		b[i] = (rand() % (157079 -  - 157079)) + 0; //values starting from 1 and goes upto 100. 
 		//std::cout << a[i] << ' ' ;
 		//std::cout << b[i] << ' ' << "\n";
 
@@ -92,16 +92,16 @@ int main()
 	//srand(time(NULL));
 
 
-	for (int k = 0; k < 10000; k++)   // Arrays of 10,000 elements taken here.
+	for (int k = 0; k < 100000; k++)   // Arrays of 10,000 elements taken here.
 	{
-		x[k] = a[k] / 100.; 
-		y[k] = b[k] / 100.;
+		x[k] = a[k] / 1000.; 
+		y[k] = b[k] / 1000.;
 		printf("%f %f   \n", x[k], y[k]);
 		//printf("%f %f   \n", x[k], y[k]);
 
 	}
 
-		for (int n = 0;n < 10000; n++)
+		for (int n = 0;n < 100000; n++)
 		{
 			double arctan_calc = arctan(x[n], y[n]);
 			double arctan_real = 180 * atan(y[n] / x[n]) / PI;
