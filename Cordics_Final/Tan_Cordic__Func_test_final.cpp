@@ -60,7 +60,7 @@ double tanfn(double test_angle)
 
     angle = angles[0];
 
-    for (int i = 0; i < 32; i++)   // Important - 31 iterations gives results with minimum errors
+    for (int i = 0; i < 32; i++)   // Important : 32 iterations gives results with minimum errors
     {
         if (theta < 0.0)
             sigma = -1.0;

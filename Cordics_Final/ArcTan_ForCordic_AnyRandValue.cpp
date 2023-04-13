@@ -19,14 +19,14 @@ double arctan(double real_x, double imag_x)
 
 	if (real_x < 0. && imag_x > 0.)
 	{
-		real_x = -real_x;
+		real_x = - real_x;
 		sign = 1;
 	}
 
 	else if (real_x < 0. && imag_x < 0.)
 	{
-		real_x = -real_x;
-		imag_x = -imag_x;
+		real_x = - real_x;
+		imag_x = - imag_x;
 	}
 
 	else if (real_x > 0.)
@@ -37,15 +37,15 @@ double arctan(double real_x, double imag_x)
 
 	if (imag_x > 0.)
 	{
-		ph_temp = -PI / 2;
+		ph_temp = - PI / 2;
 		y_re = imag_x;
-		y_im = -real_x;
+		y_im = - real_x;
 
 	}
 	else if (imag_x < 0.)
 	{
 		ph_temp = PI / 2;
-		y_re = -imag_x;
+		y_re = - imag_x;
 		y_im = real_x;
 	}
 

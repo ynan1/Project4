@@ -108,7 +108,6 @@ double fn(double test_angle)
 
 	}
 
-
 	if (angle_radian > 0.5 * pi || angle_radian < -0.5 * pi)
 	{
 		cos_v = -cos_v;

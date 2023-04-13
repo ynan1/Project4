@@ -68,7 +68,7 @@ double fn(double test_angle)
 
 	if (angle_radian > 0.5 * pi)
 	{
-		angle_temp = -(pi - angle_radian);
+		angle_temp = - (pi - angle_radian);
 		cos_v = initial_x;
 		sin_v = initial_y;
 		d[0] = -1;
@@ -107,7 +107,6 @@ double fn(double test_angle)
 		angle_temp = angle_temp - d[i] * ph[i];
 
 	}
-
 
 	if (angle_radian > 0.5 * pi || angle_radian < -0.5 * pi)
 	{

@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cordics_Final\Cos_Cordic_Func_test_final.cpp">
+    <ClCompile Include="Cordics_Final\ArcTan_Cordic_ManualEntry_-.5pi to .5pi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
