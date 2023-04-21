@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Concurrent Codes\ArcTan_Cordic.cpp" />
     <ClCompile Include="Cordics_Final\ArcTan_ForCordic_AnyRandValue.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

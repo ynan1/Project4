@@ -21,5 +21,8 @@
     <ClCompile Include="Cordics_Final\ArcTan_ForCordic_AnyRandValue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Concurrent Codes\ArcTan_Cordic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

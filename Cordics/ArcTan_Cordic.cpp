@@ -25,3 +25,11 @@ for (int j = 0; j < 10000; j++)   // Arrays of 10,000 elements taken here.
 
 }
 
+std::mutex m;
+
+auto objects1 = std::make_unique<int[]>(14);
+auto d = std::make_unique<int[] >(14);
+auto objects2 = std::make_unique<double[]>(14);
+auto k = std::make_unique<double[] >(14);
+auto objects3 = std::make_unique<double[]>(14);
+auto ph = std::make_unique<double[] >(14);
